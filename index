@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nithal - Marque Automobile</title>
+<style>
+  :root {
+    --blue-night: #0A1F44;
+    --beige-sable: #E6D6B8;
+    --white: #FFFFFF;
+    --gray-light: #F5F5F5;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #a2a290;
+    color: var(--blue-night);
+    overflow-x: hidden;
+  }
+
+  /* --- Onglets --- */
+  .tabs {
+    display: flex;
+    background-color: var(--blue-night);
+    color: var(--beige-sable);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .tab:hover, .tab.active {
+    background-color: var(--beige-sable);
+    color: var(--blue-night);
+  }
+
+  /* --- Sections --- */
+  .tab-content {
+    display: none;
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  /* --- Hero --- */
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: url('back.png');
+    min-height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color : white
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color : white
+  }
+  .btn {
+    background-color: var(--blue-night);
+    color: var(--beige-sable);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* --- Galerie voitures --- */
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .carousel::-webkit-scrollbar { display: none; }
+  .car-card {
+    min-width: 250px;
+    background-color: var(--beige-sable);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s;
+  }
+  .car-card:hover {
+    transform: scale(1.05);
+  }
+  .car-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+
+  /* --- Contact --- */
+  .contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-form input, .contact-form textarea {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  .contact-form button {
+    background-color: var(--blue-night);
+    color: var(--beige-sable);
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .contact-form button:hover {
+    transform: scale(1.05);
+  }
+
+  /* --- Footer --- */
+  footer {
+    background-color: var(--blue-night);
+    color: var(--beige-sable);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  /* --- Responsive --- */
+  @media(max-width: 768px){
+    .carousel {
+      overflow-x: scroll;
+    }
+    .car-card { min-width: 200px; }
+  }
+  
+  .logo img {
+  height: 40px;   /* ajuste selon ton logo */
+  margin: 5px 15px;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Onglets -->
+  <div class="tabs">
+    <div class="logo">
+    <img src="N.png" alt="Nithal Logo">
+  </div>
+    <div class="tab active" data-tab="home">Accueil</div>
+    <div class="tab" data-tab="models">Modèles</div>
+    <div class="tab" data-tab="about">À propos</div>
+    <div class="tab" data-tab="news">Actualités</div>
+    <div class="tab" data-tab="contact">Contact</div>
+  </div>
+
+  <!-- Contenu Onglets -->
+  <div id="home" class="tab-content active">
+    <div class="hero">
+      <h1>Nithal - L'excellence automobile</h1>
+      <button id="go-models" class="btn">Découvrir nos modèles</button>
+    </div>
+  </div>
+
+  <div id="models" class="tab-content">
+    <h2>Entrée de gamme</h2>
+    <div class="carousel">
+      <div class="car-card">
+        <img src="mercury.png" alt="Mercury">
+        <h3>Mercury</h3>
+      </div>
+      <div class="car-card">
+        <img src="eris.png" alt="Eris">
+        <h3>Eris</h3>
+      </div>
+    </div>
+
+    <h2>Milieu de gamme</h2>
+    <div class="carousel">
+      <div class="car-card">
+        <img src="jupiter.png" alt="Jupiter">
+        <h3>Jupiter</h3>
+      </div>
+      <div class="car-card">
+        <img src="saturn.png" alt="Saturn">
+        <h3>Saturn</h3>
+      </div>
+      <div class="car-card">
+        <img src="ceres.png" alt="Cérès">
+        <h3>Cérès</h3>
+      </div>
+    </div>
+
+    <h2>Haut de gamme</h2>
+    <div class="carousel">
+      <div class="car-card">
+        <img src="phobos.png" alt="Phobos">
+        <h3>Phobos</h3>
+      </div>
+      <div class="car-card">
+        <img src="pluto.png" alt="Pluto">
+        <h3>Pluto</h3>
+      </div>
+    </div>
+
+    <h2>Compétition</h2>
+    <div class="carousel">
+      <div class="car-card">
+        <img src="hunnaudiere.jpg" alt="Hunnaudière">
+        <h3>Hunnaudière</h3>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="tab-content">
+    <h2>À propos de Nithal</h2>
+    <p style="max-width:600px; margin:0 auto; text-align:center;">
+      Nithal est une marque automobile qui allie design, performance et innovation. Nos véhicules sont conçus pour offrir une expérience de conduite unique, du confort quotidien aux sensations de la compétition.
+    </p>
+  </div>
+
+  <div id="news" class="tab-content">
+    <h2>Actualités</h2>
+    <p style="max-width:600px; margin:0 auto; text-align:center;">
+      Découvrez nos dernières nouveautés, événements et innovations technologiques.
+    </p>
+  </div>
+
+  <div id="contact" class="tab-content">
+    <h2>Contact</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Nithal. Tous droits réservés.
+  </footer>
+
+  <script>
+    // Gestion des onglets
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+
+      document.getElementById("go-models").addEventListener("click", () => {
+  // Simule le clic sur l'onglet "Modèles"
+  document.querySelector('.tab[data-tab="models"]').click();
+    });
+});
+  </script>
+</body>
+</html>
